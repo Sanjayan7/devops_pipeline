@@ -1,0 +1,31 @@
+version: 0.1
+
+component: build
+
+timeoutInSeconds: 600
+
+shell: bash
+
+steps:
+  - type: Command
+    name: Install Dependencies
+    command: |
+      echo "Installing dependencies..."
+      mvn clean install
+
+  - type: Command
+    name: Run Tests
+    command: |
+      echo "Running tests..."
+      mvn test
+
+  - type: Command
+    name: Package Application
+    command: |
+      echo "Packaging application..."
+      mvn package
+
+artifacts:
+  - name: app-artifact
+    type: JAR
+    location: target/*.jar
