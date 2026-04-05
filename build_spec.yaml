@@ -1,0 +1,8 @@
+version: 0.1
+component: build
+shell: bash
+
+steps:
+  - type: Command
+    name: Build
+    command: mvn clean package
